@@ -17,6 +17,7 @@ public class Responder
     private Random randomGenerator;
     private ArrayList<String> responses;
     private HashMap<String, String> responsesMap;
+    
     /**
      * Construct a Responder
      */
@@ -51,6 +52,13 @@ public class Responder
         
     }
     
+    private String pickDefaultResponse()
+    {
+        int index = randomGenerator.nextInt(responses.size());
+        String response = responses.remove(index);
+        responses.add(response);
+        return response;
+    }
 
     /**
      * Build up a list of default responses from which we can pick one
@@ -81,6 +89,8 @@ public class Responder
         responsesMap.put("Unplug", "Have you tried unplugging then plugging it again?");
         responsesMap.put("Internet", "No connection");
         responsesMap.put("Bug", "Your file contains bugs");
+        responsesMap.put("Virus", "Your device contains virus");
+        responsesMap.put("Update", "Your device isn't up to date");
     }
 }
 
