@@ -40,16 +40,17 @@ public class Responder
         // Pick a random number for the index in the default response 
         // list. The number will be between 0 (inclusive) and the size
         // of the list (exclusive).
+        ArrayList<String> matches = new ArrayList<>();
         for(String word : words) {
          String response = responsesMap.get(words);
-         if (responses !=null) {
-             return response;
+         if (responsesMap.containsKey(word)) {
+             matches.add(responsesMap.get(word));
          }
         }
-    
-        int index = randomGenerator.nextInt(responses.size());
-        return responses.get(index);
-        
+        if (!matches.isEmpty()){
+            return matches.get(randomGenerator.nextInt(matches.size()));
+        }
+        return pickDefaultResponse();
     }
     
     private String pickDefaultResponse()
