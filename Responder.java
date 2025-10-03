@@ -91,6 +91,10 @@ public class Responder
         responsesMap.put("Bug", "Your file contains bugs");
         responsesMap.put("Virus", "Your device contains virus");
         responsesMap.put("Update", "Your device isn't up to date");
+        responsesMap.put("wifi", "No connection");
+        responsesMap.put("internet", "No connection");
+        responsesMap.put("connection", "No connection");
+
     }
 }
 
