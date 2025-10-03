@@ -50,6 +50,12 @@ public class Responder
         if (!matches.isEmpty()){
             return matches.get(randomGenerator.nextInt(matches.size()));
         }
+        
+        if (words.contains("why")) return "why does it happens?";
+        if (words.contains("how")) return "How does it happens?";
+        if (words.contains("who")) return "Who did it";
+        if (words.contains("what")) return "What did you think will happenned";
+        
         return pickDefaultResponse();
     }
     
