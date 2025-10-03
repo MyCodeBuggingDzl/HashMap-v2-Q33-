@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.*;
+import java.util.HashSet;
 import java.util.HashMap;
-
 /**
  * The responder class represents a response generator object. It is used
  * to generate an automatic response. This is the second version of this 
@@ -28,37 +28,29 @@ public class Responder
         responsesMap = new HashMap<>();
         fillResponsesMap();
     }
-    public String generateResponse()
-    {
-        // Pick a random number for the index in the default response 
-        // list. The number will be between 0 (inclusive) and the size
-        // of the list (exclusive).
     
-            
-        int index = randomGenerator.nextInt(responses.size());
-        return responses.get(index);
-    }
     /**
      * Generate a response.
      * 
      * @return  A string that should be displayed as the response
      */
-    public String generateResponse(String word)
+    public String generateResponse(HashSet<String> words)
     {
         // Pick a random number for the index in the default response 
         // list. The number will be between 0 (inclusive) and the size
         // of the list (exclusive).
-        if(responsesMap.containsKey(word))
-        {
-            return responsesMap.get(word);
+        for(String word : words) {
+         String response = responsesMap.get(words);
+         if (responses !=null) {
+             return response;
+         }
         }
-        else
-        {
-            
+    
         int index = randomGenerator.nextInt(responses.size());
         return responses.get(index);
+        
     }
-    }
+    
 
     /**
      * Build up a list of default responses from which we can pick one
@@ -88,7 +80,7 @@ public class Responder
     {
         responsesMap.put("Unplug", "Have you tried unplugging then plugging it again?");
         responsesMap.put("Internet", "No connection");
-        responsesMap.put("Bug", "Your files containes bugs");
+        responsesMap.put("Bug", "Your file contains bugs");
     }
-  }
+}
 
